@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { SITE_NAME, LOCATION, SHOP_DAYS, SHOP_HOURS, buildWhatsAppLink } from '../config'
+import { SITE_NAME, LOCATION, SHOP_DAYS, SHOP_HOURS, GOOGLE_MAP_LINK, buildWhatsAppLink } from '../config'
 
 const SHOW_DELAY_MS = 800
 const AUTO_CLOSE_MS = 10000
@@ -31,8 +31,14 @@ export default function WelcomePopup() {
         </div>
 
         <span className="popup-icon">🛍️</span>
-        <h2 className="popup-title">We Have a Shop!</h2>
-        <p className="popup-location">📍 {LOCATION}</p>
+        <h2 className="popup-title">Contact Here!</h2>
+        {GOOGLE_MAP_LINK ? (
+          <a href={GOOGLE_MAP_LINK} target="_blank" rel="noreferrer" className="popup-location">
+            📍 {LOCATION}
+          </a>
+        ) : (
+          <p className="popup-location">📍 {LOCATION}</p>
+        )}
         <p className="popup-hours">
           Open {SHOP_DAYS}, {SHOP_HOURS}
         </p>

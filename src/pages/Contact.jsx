@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import Layout from '../components/Layout'
-import { LOCATION, WHATSAPP_NUMBER, EMAIL_ID, SHOP_DAYS, SHOP_HOURS, buildWhatsAppLink } from '../config'
+import { LOCATION, WHATSAPP_NUMBER, EMAIL_ID, SHOP_DAYS, SHOP_HOURS, GOOGLE_MAP_LINK, buildWhatsAppLink } from '../config'
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', message: '' })
@@ -22,7 +22,16 @@ export default function Contact() {
       <div className="contact">
         <div className="contact__info">
           <h3>Visit / Write to us</h3>
-          <p>📍 {LOCATION}</p>
+          {GOOGLE_MAP_LINK ? (
+            <p>
+              📍{' '}
+              <a href={GOOGLE_MAP_LINK} target="_blank" rel="noreferrer">
+                {LOCATION}
+              </a>
+            </p>
+          ) : (
+            <p>📍 {LOCATION}</p>
+          )}
           {WHATSAPP_NUMBER && (
             <p>
               💬{' '}
