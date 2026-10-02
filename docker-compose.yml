@@ -1,0 +1,20 @@
+services:
+  web:
+    build:
+      context: .
+      args:
+        VITE_WHATSAPP_NUMBER: ${VITE_WHATSAPP_NUMBER}
+        VITE_EMAIL_ID: ${VITE_EMAIL_ID}
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost/healthz"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+
+# Scale to multiple replicas behind a load balancer / reverse proxy with:
+#   docker compose up --build --scale web=3
+# (drop the fixed host port above and front the replicas with nginx/Traefik
+# if running more than one on the same host)
