@@ -35,7 +35,7 @@ export default function Contact() {
           {WHATSAPP_NUMBER && (
             <p>
               💬{' '}
-              <a href={buildWhatsAppLink('Hi! I have a question about Myra.')} target="_blank" rel="noreferrer">
+              <a href={buildWhatsAppLink('Hi! I have a question about Mayra.')} target="_blank" rel="noreferrer">
                 Chat with us on WhatsApp
               </a>
             </p>
@@ -45,7 +45,6 @@ export default function Contact() {
               ✉️ <a href={`mailto:${EMAIL_ID}`}>{EMAIL_ID}</a>
             </p>
           )}
-          <p>🛍️ Shop open {SHOP_DAYS}, {SHOP_HOURS}</p>
           <p>💬 WhatsApp orders accepted all week</p>
         </div>
 

@@ -1,25 +1,23 @@
-import { products } from '../data/products'
-import { buildWhatsAppLink, ORIGIN_TAG } from '../config'
+import { kurtiLinks } from '../data/products'
+import { ORIGIN_TAG } from '../config'
 import { useWishlist } from '../context/WishlistContext'
+import { useCart } from '../context/CartContext'
 
 export default function ProductGrid() {
   const { isWishlisted, toggleWishlist } = useWishlist()
+  const { addItem } = useCart()
 
-  const handlePurchase = (product) => {
-    const message = `Hi! I'd like to purchase this ${ORIGIN_TAG} kurti: ${product.title}`
-    window.open(buildWhatsAppLink(message), '_blank', 'noopener,noreferrer')
-  }
 
   return (
     <div className="grid" id="shop">
-      {products.map((product) => (
+      {kurtiLinks.map((product) => (
         <div className="card" key={product.id}>
           <div className="card__image-wrap">
             <span className="card__badge">{ORIGIN_TAG}</span>
             <img src={product.image} alt={product.title} className="card__image" />
             <button
               className={`card__wishlist ${isWishlisted(product.id) ? 'card__wishlist--active' : ''}`}
-              aria-label="Add to wishlist"
+              aria-label={isWishlisted(product.id) ? 'Remove from wishlist' : 'Add to wishlist'}
               onClick={() => toggleWishlist(product.id)}
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill={isWishlisted(product.id) ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="2">
@@ -28,8 +26,8 @@ export default function ProductGrid() {
             </button>
           </div>
           <p className="card__title">{product.title}</p>
-          <button className="card__purchase" onClick={() => handlePurchase(product)}>
-            Purchase
+          <button className="card__purchase" onClick={() => addItem(product)}>
+            Add to Cart
           </button>
         </div>
       ))}

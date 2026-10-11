@@ -1,18 +1,15 @@
-export const sizes = [
-  { label: 'XS', count: 12 },
-  { label: 'S', count: 18 },
-  { label: 'M', count: 24 },
-  { label: 'L', count: 24 },
-  { label: 'XL', count: 20 },
-  { label: 'XXL', count: 14 },
-  { label: 'Custom Size', count: 8 }
-]
+import kurti1 from '../images/Mayra_A4_1_emerald.png'
+import kurti2 from '../images/Mayra_A4_2_maroon.png'
+import kurti3 from '../images/Mayra_A4_3_teal.png'
+import banner1 from '../images/Mayra_banner_1_emerald.png'
+import banner2 from '../images/Mayra_banner_2_maroon.png'
+import banner3 from '../images/Mayra_banner_3_teal.png'
 
 export const navLinks = [
   { label: 'Home', to: '/' },
-  { label: 'New Arrivals', to: '/' },
   { label: 'Contact', to: '/contact' },
-  { label: 'Support', to: '/support' }
+  { label: 'Support', to: '/support' },
+  { label: 'Reviews', to: '/reviews' }
 ]
 
 export const products = [
@@ -30,3 +27,15 @@ export const products = [
     p.title.split(' ').slice(0, 2).join(' ')
   )}`
 }))
+
+export const kurtiLinks = [
+  { id: 1, title: 'Emerald Kurti', image: kurti1 },
+  { id: 2, title: 'Maroon Kurti', image: kurti2 },
+  { id: 3, title: 'Teal Kurti', image: kurti3 }
+]
+
+export const banners = [
+  { id: 1, title: 'Kurtis for pretty girls', image: banner1 },
+  { id: 2, title: 'Kurtis for beautiful girls', image: banner2 },
+  { id: 3, title: 'Kurtis for gorgeous girls', image: banner3 }
+]

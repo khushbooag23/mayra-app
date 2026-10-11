@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="footer__brand">
-        <span className="logo__mark">❀</span> {SITE_NAME}
+        <img src="/logo.png" alt={SITE_NAME} className="footer__logo" />
       </div>
       {GOOGLE_MAP_LINK ? (
         <a href={GOOGLE_MAP_LINK} target="_blank" rel="noreferrer" className="footer__address footer__address--link">

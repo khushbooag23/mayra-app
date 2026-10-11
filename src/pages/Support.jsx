@@ -8,7 +8,7 @@ const faqs = [
   },
   {
     q: 'How do I place an order?',
-    a: "Click the Purchase button on any kurti you like — it opens WhatsApp with your order details pre-filled so you can confirm with us directly."
+    a: "Add the kurtis you like to your cart, then tap Checkout on WhatsApp — it opens WhatsApp with your whole order pre-filled so you can confirm with us directly."
   },
   {
     q: 'Are the kurtis really Jaipur made?',
@@ -24,7 +24,7 @@ const faqs = [
   },
   {
     q: 'Do you take custom sizing?',
-    a: 'Yes, select "Custom Size" from the filters or mention your measurements when you message us.'
+    a: 'Yes, mention your measurements when you message us on WhatsApp.'
   }
 ]
 
@@ -37,7 +37,7 @@ export default function Support() {
       </p>
 
       <a
-        href={buildWhatsAppLink('Hi! I need some support with my Myra order.')}
+        href={buildWhatsAppLink('Hi! I need some support with my Mayra order.')}
         target="_blank"
         rel="noreferrer"
         className="support__whatsapp"

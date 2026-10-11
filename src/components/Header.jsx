@@ -1,10 +1,12 @@
 import { NavLink } from 'react-router-dom'
 import { navLinks } from '../data/products'
-import { SITE_NAME, LOCATION, SHOP_DAYS } from '../config'
+import { SITE_NAME, LOCATION } from '../config'
 import { useWishlist } from '../context/WishlistContext'
+import { useCart } from '../context/CartContext'
 
 export default function Header() {
   const { wishlist } = useWishlist()
+  const { count, openCart } = useCart()
 
   return (
     <header className="header">
@@ -15,24 +17,14 @@ export default function Header() {
         </span>
         <span className="header__announcement-divider">•</span>
         <span className="header__announcement-item">
-          <ShopIcon />
-          Shop open {SHOP_DAYS}
-        </span>
-        <span className="header__announcement-divider">•</span>
-        <span className="header__announcement-item">
           <ChatIcon />
           Order anytime on WhatsApp
         </span>
       </div>
 
       <div className="header__top">
-        <button className="icon-btn" aria-label="Search">
-          <SearchIcon />
-        </button>
-
         <NavLink to="/" className="logo">
-          <span className="logo__mark">❀</span>
-          <span className="logo__text">{SITE_NAME}</span>
+          <img src="/logo.png" alt={SITE_NAME} className="logo__img" />
         </NavLink>
 
         <div className="header__actions">
@@ -40,11 +32,9 @@ export default function Header() {
             <HeartIcon />
             <span className="badge">{wishlist.length}</span>
           </button>
-          <button className="icon-btn" aria-label="Account">
-            <UserIcon />
-          </button>
-          <button className="icon-btn" aria-label="Cart">
+          <button className="icon-btn icon-btn--badge" aria-label={`Cart (${count} items)`} onClick={openCart}>
             <BagIcon />
+            {count > 0 && <span className="badge">{count}</span>}
           </button>
         </div>
       </div>
@@ -72,28 +62,10 @@ export default function Header() {
   )
 }
 
-function SearchIcon() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <circle cx="11" cy="11" r="7" />
-      <line x1="21" y1="21" x2="16.65" y2="16.65" />
-    </svg>
-  )
-}
-
 function HeartIcon() {
   return (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
       <path d="M12 21s-7.5-4.6-10-9.3C.5 8.1 2.3 4.5 6 4.2c2-.2 3.6 1 5 3 1.4-2 3-3.2 5-3 3.7.3 5.5 3.9 4 7.5-2.5 4.7-10 9.3-10 9.3z" />
-    </svg>
-  )
-}
-
-function UserIcon() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <circle cx="12" cy="8" r="4" />
-      <path d="M4 20c0-4 4-6 8-6s8 2 8 6" />
     </svg>
   )
 }
@@ -123,16 +95,6 @@ function PinIcon() {
     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
       <path d="M12 21s-7-6.2-7-11a7 7 0 1 1 14 0c0 4.8-7 11-7 11z" />
       <circle cx="12" cy="10" r="2.5" />
-    </svg>
-  )
-}
-
-function ShopIcon() {
-  return (
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <path d="M3 9l1.5-5h15L21 9" />
-      <path d="M3 9h18v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9z" />
-      <path d="M9 20v-5h6v5" />
     </svg>
   )
 }

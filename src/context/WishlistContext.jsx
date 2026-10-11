@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from 'react'
 
-const STORAGE_KEY = 'myra_wishlist'
+const STORAGE_KEY = 'Mayra_wishlist'
 const WishlistContext = createContext(null)
 
 function readStoredWishlist() {

@@ -1,4 +1,4 @@
-export const SITE_NAME = 'Myra'
+export const SITE_NAME = 'Mayra'
 export const LOCATION = "Venkata Living Women's PG"
 export const ORIGIN_TAG = 'Jaipur Made'
 export const SHOP_DAYS = 'Saturday & Sunday'

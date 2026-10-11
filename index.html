@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Myra — Kurti Haul</title>
+    <title>Mayra — Kurti Haul</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -12,6 +12,13 @@
     />
   </head>
   <body>
+    <!-- Static copy of the "Stay in touch" form so Netlify detects it at build time -->
+    <form name="stay-in-touch" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input name="bot-field" />
+      <input name="name" />
+      <input name="phone" />
+      <input name="email" />
+    </form>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
