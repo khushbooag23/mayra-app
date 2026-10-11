@@ -9,7 +9,7 @@ export default function Layout({ children }) {
     <div className="page">
       <Header />
       <main className="main">{children}</main>
-      <ReviewsSection />
+      {/* <ReviewsSection /> */}
       <Footer />
       <WhatsAppButton />
       <CartDrawer />
