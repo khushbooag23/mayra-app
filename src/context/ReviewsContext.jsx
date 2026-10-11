@@ -8,7 +8,7 @@ const seedReviews = [
     id: 'seed-1',
     name: 'Khushboo',
     rating: 5,
-    text: 'Cotton - Conformatable, using for office..Looks pretty',
+    text: 'Please share ur review and feedback here',
     date: '2026-10-10'
   }
 ]
